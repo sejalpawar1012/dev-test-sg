@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDM Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        margin: auto;
+        max-width: 600px;
+        min-height: 100vh;
+        background: rgb(255, 255, 255);
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.4px;
+        color: rgb(34, 31, 32);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .header-2 {
+        font-family: Lato;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28.8px;
+        color: rgb(33, 33, 33);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .button {
+        cursor: pointer;
+        padding: 12px 32px;
+        border: none;
+        border-radius: 40px;
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19.2px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        width: -moz-fit-content;
+        width: fit-content;
+      }
+      .button.primary {
+        background: rgb(72, 100, 228);
+      }
+      .button.success {
+        background: rgb(0, 131, 102);
+      }
+      .button.success.green {
+        color: rgb(197, 223, 217);
+      }
+
+      .header {
+        display: flex;
+        padding: 20px 30px;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header .logo-wrapper {
+        height: 30px;
+        width: 130px;
+      }
+      .header .logo-wrapper img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: contain;
+        object-fit: contain;
+      }
+
+      .hero {
+        display: flex;
+        padding: 30px 30px 0 30px;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .hero .hero-title {
+        font-family: Lato;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28.8px;
+        text-align: center;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .services .service-card {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 22px;
+        align-items: center;
+        justify-content: center;
+      }
+      .services .service-card .service-logo {
+        height: 60px;
+        width: 60px;
+      }
+      .services .service-card .service-logo img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: contain;
+        object-fit: contain;
+      }
+      .services .service-card .service-name {
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 19.2px;
+        text-align: center;
+      }
+
+      .placements {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px;
+      }
+      .placements .placements-body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .placements .placements-body .placement-image {
+        width: 100%;
+        height: 196px;
+      }
+      .placements .placements-body .placement-image img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      .application {
+        display: flex;
+      }
+      .application .application-left-pane,
+      .application .application-right-pane {
+        width: 50%;
+      }
+      .application .application-left-pane {
+        display: flex;
+      }
+      .application .application-left-pane img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+      .application .application-right-pane {
+        display: flex;
+        padding: 30px;
+        background: rgb(197, 223, 217);
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .feedbacks {
+        display: flex;
+        padding: 30px 60px;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .feedbacks .feedback-sub-header {
+        color: rgb(117, 117, 117);
+      }
+      .feedbacks .feedback-body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .feedbacks .feedback-body .starts {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .feedbacks .feedback-body .starts .star-wrapper {
+        height: 24px;
+        width: 24px;
+      }
+      .feedbacks .feedback-body .starts .star-wrapper img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+      .feedbacks .feedback-body .student-name {
+        color: rgb(117, 117, 117);
+      }
+
+      .contact-us {
+        padding: 0 30px 30px 30px;
+      }
+      .contact-us .card {
+        display: flex;
+        border: 1px solid rgb(189, 189, 189);
+        padding: 24px;
+        gap: 22px;
+        border-radius: 10px;
+      }
+      .contact-us .card .card-left-pane .contact-icon-wrapper {
+        height: 60px;
+        width: 60px;
+      }
+      .contact-us .card .card-left-pane .contact-icon-wrapper img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+      .contact-us .card .card-right-pane {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .contact-us .card .card-right-pane .card-desc {
+        color: rgb(97, 97, 97);
+      }
+
+      .footer {
+        display: flex;
+        background: rgb(72, 100, 228);
+        padding: 30px;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .footer .footer-top {
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer .footer-top .footer-logo-wrapper {
+        height: 30px;
+        width: 100px;
+      }
+      .footer .footer-top .footer-logo-wrapper img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: contain;
+        object-fit: contain;
+      }
+      .footer .footer-top .socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .footer .footer-top .social-icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .footer hr {
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .footer .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer .footer-bottom .links {
+        display: flex;
+        flex-direction: column;
+      }
+      .footer .footer-bottom .links .link {
+        font-family: Lato;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.4px;
+        text-align: left;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+      }
+      .footer .footer-bottom .disclaimer-wrapper {
+        display: flex;
+        max-width: 250px;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .footer .footer-bottom .disclaimer-wrapper .disclaimer-title {
+        font-family: Lato;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 14.4px;
+        text-align: left;
+        color: rgb(255, 255, 255);
+      }
+      .footer .footer-bottom .disclaimer-wrapper .disclaimer-desc {
+        font-family: Lato;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px;
+        text-align: left;
+        color: rgb(255, 255, 255);
+      }
+
+      @media (max-width: 500px) {
+        .button {
+          font-size: 14px;
+        }
+        .header {
+          flex-direction: column;
+          gap: 15px;
+          padding-bottom: 0;
+        }
+        .hero {
+          padding: 30px 15px 0 15px;
+        }
+        .services {
+          grid-template-columns: 1fr;
+        }
+        .placements {
+          padding: 24px;
+        }
+        .application {
+          flex-direction: column;
+        }
+        .application .application-left-pane,
+        .application .application-right-pane {
+          width: 100%;
+        }
+        .application .application-right-pane {
+          padding: 24px;
+        }
+        .feedbacks {
+          padding: 24px;
+        }
+        .contact-us {
+          padding: 0 24px 24px 24px;
+        }
+        .contact-us .card {
+          padding: 20px;
+          flex-direction: column;
+        }
+        .footer {
+          padding: 24px;
+        }
+        .footer .footer-top {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .footer .footer-bottom {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="header">
+      <div class="logo-wrapper">
+        <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihY2olMG51u0Q3_pEh_AQnF35AlnLSvc-a_Dpwwnnn6Nicjd-OZjsgwW70o35nyNlnw_QCWKRiU6cfotOr4JmFxFa_fguw3ha7A=w2880-h1558" alt="logo" />
+      </div>
+      <button class="button primary">Apply Online Now</button>
+    </section>
+
+    <section class="hero">
+      <h2 class="header-2 text-center">
+        Real experience makes a real difference
+      </h2>
+      <p class="hero-name text-center">Hi Firstname</p>
+      <p class="hero-desc text-center">
+        When you start your course with Hader Institute of Education, you’ll
+        have the opportunity to do work placement in our retreats or at an
+        affiliate organisation close to home. Real-life work experience gives
+        you the best of both worlds! It’s a core part our philosophy to deliver
+        online training that meets industry needs.
+      </p>
+    </section>
+
+    <section class="services">
+      <div class="service-card">
+        <div class="service-logo">
+          <img src="./assets/service-1.png" alt="service logo" />
+        </div>
+        <div class="service-name text-center">
+          The only institute in Australia with international rehab facilities
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-logo">
+          <img src="./assets/service-2.png" alt="service logo" />
+        </div>
+        <div class="service-name text-center">
+          Four locations across Victoria and Queensland
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-logo">
+          <img src="./assets/service-3.png" alt="service logo" />
+        </div>
+        <div class="service-name text-center">
+          Ice, heroin, methamphetamines, cannabis, prescription medication and
+          alcohol addiction clinics
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-logo">
+          <img src="./assets/service-4.png" alt="service logo" />
+        </div>
+        <div class="service-name text-center">
+          Choose your placement hours and days
+        </div>
+      </div>
+    </section>
+
+    <section class="placements">
+      <h2 class="header-2 text-center">Flexible work placements</h2>
+      <div class="placements-body">
+        <div class="placement-image">
+          <img
+            src="./assets/businesswoman-sitting-on-sofa-working-on-laptop.jpg"
+            alt="businesswoman-sitting-on-sofa-working-on-laptop"
+          />
+        </div>
+        <p>
+          We understand you might be working and not able to complete your hours
+          of placement as fast as you’d like. That’s why you’ll have a workplace
+          coordinator who will help you find suitable hours and days to empower
+          you to finish your work placement.
+        </p>
+      </div>
+    </section>
+
+    <section class="application">
+      <div class="application-left-pane">
+        <img src="./assets/upskill.png" alt="Upskill" />
+      </div>
+      <div class="application-right-pane">
+        <h2 class="header-2">It’s easy to start your application online</h2>
+        <button class="button success green">Apply Online Now</button>
+      </div>
+    </section>
+
+    <section class="feedbacks">
+      <h2 class="header-2 text-center">Hear from Hader students</h2>
+      <p class="feedback-sub-header text-center">
+        We love to hear genuine feedback from our students.
+      </p>
+      <div class="feedback-body">
+        <div class="starts">
+          <div class="star-wrapper">
+            <img src="./assets/star.png" alt="star" />
+          </div>
+          <div class="star-wrapper">
+            <img src="./assets/star.png" alt="star" />
+          </div>
+          <div class="star-wrapper">
+            <img src="./assets/star.png" alt="star" />
+          </div>
+          <div class="star-wrapper">
+            <img src="./assets/star.png" alt="star" />
+          </div>
+          <div class="star-wrapper">
+            <img src="./assets/star.png" alt="star" />
+          </div>
+        </div>
+        <div>
+          I am coming to end of my studies and have found all the staff to be
+          extremely helpful and supportive of the students. I have enjoyed the
+          classes and learnt so much over the past year. A special mention to my
+          program coordinator who is extremely responsive and genuinely wants
+          the best for the students.
+        </div>
+        <div class="student-name text-center">Lauren Skuse</div>
+      </div>
+    </section>
+
+    <section class="contact-us">
+      <div class="card">
+        <div class="card-left-pane">
+          <div class="contact-icon-wrapper">
+            <img src="./assets/phone.png" alt="phone" />
+          </div>
+        </div>
+        <div class="card-right-pane">
+          <h3 class="header-3">Get in touch with a Course Advisor</h3>
+          <p class="card-desc">
+            We’ll guide you through the application process and answer any
+            questions you might have.
+          </p>
+          <button class="button success">Contact Us</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="footer-top">
+        <div class="footer-logo-wrapper">
+          <img src="./assets/logo-white.png" alt="Logo" />
+        </div>
+        <div class="socials">
+          <div class="social-icon-wrapper">
+            <img src="./assets/facebook.png" alt="facebook" />
+          </div>
+          <div class="social-icon-wrapper">
+            <img src="./assets/twitter.png" alt="twitter" />
+          </div>
+          <div class="social-icon-wrapper">
+            <img src="./assets/instagram.png" alt="instagram" />
+          </div>
+          <div class="social-icon-wrapper">
+            <img src="./assets/youtube.png" alt="youtube" />
+          </div>
+          <div class="social-icon-wrapper">
+            <img src="./assets/tiktok.png" alt="tiktok" />
+          </div>
+          <div class="social-icon-wrapper">
+            <img src="assets/wechat.png" alt="wechat" />
+          </div>
+          <div class="social-icon-wrapper">
+            <img src="./assets/linkedin.png" alt="linkedin" />
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="footer-bottom">
+        <div class="links">
+          <a href="#" class="link">Manage Preferences</a>
+          <a href="#" class="link">Update Profile</a>
+          <a href="#" class="link">Privacy Policy</a>
+        </div>
+        <div class="disclaimer-wrapper">
+          <p class="disclaimer-title">Disclaimer</p>
+          <p class="disclaimer-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+            maximus, nulla ut commodo sagittis, sapien dui mattis dui, non
+            pulvinar lorem felis nec erat Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
